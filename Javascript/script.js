@@ -40,6 +40,7 @@ let getSongs = async (playlistName) => {
 let playAudio = async (playimg,playlistName,songNumber,pause = false) => {
     songs = await getSongs(playlistName);
     currSong.src = songs[songNumber];
+    console.log(currSong.src);
     if(!pause){
         currSong.play();
         const parts = currSong.src.split('/');
