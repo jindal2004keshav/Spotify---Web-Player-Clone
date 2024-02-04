@@ -35,6 +35,7 @@ let getSongs = async (playlistName) => {
         }
     }
     return link;
+    console.log(link);
 }
 
 let playAudio = async (playimg,playlistName,songNumber,pause = false) => {
