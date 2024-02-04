@@ -1,0 +1,159 @@
+.flex-container{
+    display:flex;
+    flex-direction: column;
+    width:28vw;
+    position:relative;
+    overflow-y:scroll;
+    overflow-x: hidden;
+    height:100%;
+    gap: 2px;
+    margin-left: 2px;
+}
+
+.recent{
+    display:flex;
+    width:100%;
+    gap:8px;
+    position: absolute;
+    left:77%;
+}
+
+.recent:hover{
+    color:white;
+    img.invert{
+        filter:invert(1);
+        width:19px;
+    }
+    cursor: pointer;
+}
+
+.searchBack{
+    padding:0;
+    margin:0;
+    border-radius: 999px;
+    background-color: transparent;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border: 0px;
+    padding: 7px;
+}
+
+.searchBack:hover{
+    background-color: #232323;
+    img.invert{
+        filter: invert(1);
+    }
+    cursor: pointer;
+}
+
+.search{
+    color: #a2a2a2;
+    display:flex;
+    width:100%;
+    gap:8px;
+    margin: 17px;
+    margin-top: 12px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.search img{
+    width: 17px;
+}
+
+.list{
+    display: flex;;
+    flex-direction: column;
+    gap: 5px;
+    width: 422px;
+    margin-top: 27px;
+    padding-bottom: 8px;
+    /* height: 150%; */
+    margin-bottom: 135px;
+}
+
+.block{
+    display:flex;
+    width:95%;
+    background-color: transparent;
+    margin-left:5px;
+    margin-right: 5px;
+    border-radius: 5px;
+    gap: 7px;
+
+}
+
+.likedImage{
+    width:13%;
+    padding: 8px;
+    border-radius: 13px;
+}
+
+.block-text{
+    color:white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 15px;
+}
+
+.block-text h3{
+    font-family: 'Roboto', sans-serif;
+    font-weight:550;
+}
+
+.block-info{
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    color: #a7a7a7;
+    align-items: center;
+    gap: 10px;
+    word-spacing: 3px;
+    margin-top: 5px;
+}
+
+.block-info img{
+    width:18px;
+    filter: invert(66%) sepia(92%) saturate(280%) hue-rotate(73deg) brightness(96%) contrast(84%);
+}
+
+.block:hover{
+    background-color: #1A1A1A;
+    cursor: pointer;
+}
+
+/* For WebKit browsers */
+::-webkit-scrollbar {
+    width: 12px; /* Width of the scrollbar */
+    height: 12px; /* Height of the scrollbar */
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #333; /* Background color of the track */
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #666; /* Color of the scrollbar handle */
+    border-radius: 0px; /* Rounded corners */
+}
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #888; /* Color of the scrollbar handle on hover */
+  }
+  
+  /* Hide scrollbar by default */
+  /* ::-webkit-scrollbar {
+    display: none;
+  }
+  
+  Show scrollbar on hover
+  body:hover::-webkit-scrollbar {
+    display: block;
+  } */
+  
+  
