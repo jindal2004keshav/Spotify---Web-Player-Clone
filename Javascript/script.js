@@ -23,7 +23,7 @@ function secondsToMinutes(seconds) {
 }
 
 let getSongs = async (playlistName) => {
-    let a = await fetch(`http://127.0.0.1:5500/songs/${playlistName}`);
+    let a = await fetch(`songs/${playlistName}`);
     let response = await a.text();
     let div = document.createElement("div");
     div.innerHTML = response;
@@ -51,9 +51,9 @@ let playAudio = async (playimg,playlistName,songNumber,pause = false) => {
         
         document.querySelector("#currSongName").innerText = songName;
         document.querySelector("#currSongSinger").innerText = singerName;
-        let imgURL = `http://127.0.0.1:5500/songs/${playlistName}/${songName.replaceAll(" ","_")}.jpeg`;
+        let imgURL = `songs/${playlistName}/${songName.replaceAll(" ","_")}.jpeg`;
         document.querySelector(".currSongimg").src = imgURL;
-        playimg.src = "http://127.0.0.1:5500/SVG/pause.svg";
+        playimg.src = "SVG/pause.svg";
     }    
 };
 
@@ -63,9 +63,9 @@ for(e of displayPlaylist){
     let img = e.querySelector("img");
     img.addEventListener("click", (evt) => {
         songNumber = 0;
-        if(evt.target.src == "http://127.0.0.1:5500/SVG/play.svg"){
+        if(evt.target.src == "SVG/play.svg"){
             evt.target.parentElement.parentElement.style.backgroundColor = "#504545";
-            evt.target.src = "http://127.0.0.1:5500/SVG/pause.svg";
+            evt.target.src = "SVG/pause.svg";
             if(currSong.src === ""){
                 temp = evt.target.parentElement.parentElement;
                 temp.querySelector(".playimg").classList.add("hover-prop");
@@ -77,19 +77,19 @@ for(e of displayPlaylist){
                 }
                 else{
                     playAudio(playimg, playlistName, songNumber);
-                    temp.querySelector(".playimg").querySelector("img").src = "http://127.0.0.1:5500/SVG/play.svg";
+                    temp.querySelector(".playimg").querySelector("img").src = "SVG/play.svg";
                     temp.style.backgroundColor = "#332726";
                     temp.querySelector(".playimg").classList.remove("hover-prop");
                     temp = evt.target.parentElement.parentElement;
                     temp.querySelector(".playimg").classList.add("hover-prop");
                 }
-                playimg.src = "http://127.0.0.1:5500/SVG/pause.svg";
+                playimg.src = "SVG/pause.svg";
             }
         }
         else{
-            evt.target.src = "http://127.0.0.1:5500/SVG/play.svg";
+            evt.target.src = "SVG/play.svg";
             currSong.pause();
-            playimg.src = "http://127.0.0.1:5500/SVG/play.svg";
+            playimg.src = "SVG/play.svg";
         }
     });
 }
@@ -108,13 +108,13 @@ let updatePlaylist = (e) => {
     for(evt of displayPlaylist){
         if(evt.parentElement.innerText == e.querySelector(".block-text").querySelector("h3").innerHTML){
             evt.parentElement.querySelector(".playimg").classList.add("hover-prop");
-            evt.parentElement.querySelector(".playimg").querySelector("img").src = "http://127.0.0.1:5500/SVG/pause.svg";
+            evt.parentElement.querySelector(".playimg").querySelector("img").src = "SVG/pause.svg";
             evt.parentElement.style.backgroundColor = "#504545";
             temp = evt.parentElement;
         }
         else{
             evt.parentElement.style.backgroundColor = "#332726";
-            evt.parentElement.querySelector(".playimg").querySelector("img").src = "http://127.0.0.1:5500/SVG/play.svg";
+            evt.parentElement.querySelector(".playimg").querySelector("img").src = "SVG/play.svg";
             evt.parentElement.querySelector(".playimg").classList.remove("hover-prop");
         }
     }
@@ -153,25 +153,25 @@ prevSong.addEventListener("click", () => {
 
 playbtn.addEventListener("click", () => {
     let playimg  = playbtn.querySelector("img");
-    if(playimg.src === "http://127.0.0.1:5500/SVG/play.svg"){
+    if(playimg.src === "SVG/play.svg"){
         if(currSong.src === ""){
         }
         else{
             currSong.play();
-            playimg.src = "http://127.0.0.1:5500/SVG/pause.svg";
+            playimg.src = "SVG/pause.svg";
             for(evt of displayPlaylist){
                 if(evt.classList.contains("hover-prop")){
-                    evt.querySelector("img").src = "http://127.0.0.1:5500/SVG/pause.svg";
+                    evt.querySelector("img").src = "SVG/pause.svg";
                 }
             }
         }
     }
     else{
         currSong.pause();
-        playimg.src = "http://127.0.0.1:5500/SVG/play.svg";
+        playimg.src = "SVG/play.svg";
         for(evt of displayPlaylist){
             if(evt.classList.contains("hover-prop")){
-                evt.querySelector("img").src = "http://127.0.0.1:5500/SVG/play.svg";
+                evt.querySelector("img").src = "SVG/play.svg";
             }
         }
     }
@@ -215,24 +215,24 @@ document.querySelector("#loop").addEventListener("click" , () => {
 
 volume.oninput = () => {
     if(volume.value == 0){
-        document.querySelector("#mute").src = "http://127.0.0.1:5500/SVG/mute.svg";
+        document.querySelector("#mute").src = "SVG/mute.svg";
     }
     else{
-        document.querySelector("#mute").src = "http://127.0.0.1:5500/SVG/volume.svg"
+        document.querySelector("#mute").src = "SVG/volume.svg"
     }
     currSong.volume = volume.value / 100;
 }
 
 document.querySelector("#mute").addEventListener("click", (evt) => {
-    if(evt.target.src == "http://127.0.0.1:5500/SVG/volume.svg"){
+    if(evt.target.src == "SVG/volume.svg"){
         volume.value = 0;
         currSong.volume = 0;
-        evt.target.src = "http://127.0.0.1:5500/SVG/mute.svg"
+        evt.target.src = "SVG/mute.svg"
     }
     else{
         volume.value = 100;
         currSong.volume = 1;
-        evt.target.src = "http://127.0.0.1:5500/SVG/volume.svg"
+        evt.target.src = "SVG/volume.svg"
     }
 });
 
