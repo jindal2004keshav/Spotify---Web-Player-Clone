@@ -1,4 +1,5 @@
 # Spotify-Web-Player-Clone
+![Spotify Web Clone](clone_ss.png)
 <p>This project is a Spotify Web Player clone built with HTML, CSS, and JavaScript. It aims to replicate the basic functionality and design of the popular music streaming platform, allowing users to browse and listen to a vast collection of songs, albums, and playlists.</p>
 
   <h2>Features:</h2>
